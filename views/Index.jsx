@@ -1,4 +1,11 @@
 const React = require('react');
+const border = {
+    border: "1px solid black",
+    textAlign: "center"
+}
+const center = {
+    textAlign:"center"
+}
 
 
 class Index extends React.Component {
@@ -8,21 +15,23 @@ class Index extends React.Component {
         // console.log(logs._id)
         // console.log(logs)
         return (
-            <div>
+            <div style={center}>
                <h1> INDEX</h1>
                <ul>
                {logs.map((oneLog,i) => {
-                  return <li key={i}>
+                  return <li style={border} key={i}>
                     <div>
-                      <a href={`/logs/${logs.id}`}>Title: {oneLog.title} </a>
-                      <p>Entry: {oneLog.entry} ID: M000{oneLog.id}</p>
-                       { oneLog.shipIsBroken? <span> Ship is Broken</span>: <span>  Ship is Not Broken? </span>}  
+                      <a href={`/logs/${oneLog.id}`}>Title: {oneLog.title} </a>
+                      <p>Entry: {oneLog.entry} 
+                      ID: {oneLog.id}
+                      </p>
+                       { oneLog.shipIsBroken? <span> Ship is Broken</span>: <span>  Ship is Not Broken </span>}  
 
                  <form 
                 
-                  action={`/logs/${logs.id}?_method=DELETE`} method="POST"><input type="submit" value="DELETE"/>
+                  action={`/logs/${oneLog._id}?_method=DELETE`} method="POST"><input type="submit" value="DELETE"/>
                   </form>  
-                 <a href={`/logs/${logs.id}/edit`}>Edit This Log</a>  <br/>  <br/>
+                 <a href={`/logs/${oneLog._id}/edit`}>Edit This Log</a>  <br/>  <br/>
                  </div>
                 {/* Not Working */}
                   </li>

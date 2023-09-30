@@ -1,14 +1,27 @@
 const React = require('react')
+const border = {
+    border: "1px solid black",
+    textAlign: "center"
+}
+const center = {
+    textAlign:"center"
+}
 
 class Show extends React.Component {
    render () {
     const logs = this.props.logs
+    const oneLog = this.props.oneLog
     console.log(logs + "Look HERE")
     return (
       <div>
        
-        <h1>Show Page</h1>
-         {logs.title}
+        <h1>Log: {logs.title}</h1>
+        
+
+         <h2>Entry: {logs.entry}</h2>
+
+        <h4>{logs.shipIsBroken? `Ship Broken` : `Ship not Broken`} </h4>
+         
        
 
         <h3>
